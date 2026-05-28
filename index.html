@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -917,6 +918,12 @@
       .reveal-delay-4 {
         transition-delay: 0.4s;
       }
+      .reveal-delay-5 {
+        transition-delay: 0.5s;
+      }
+      .reveal-delay-6 {
+        transition-delay: 0.6s;
+      }
 
       /* About */
       #about {
@@ -1202,9 +1209,171 @@
         transform: scale(1.03);
       }
 
+      /* ═══════════════════════════════════════
+   CERTIFICATIONS SECTION
+   ═══════════════════════════════════════ */
+      #certifications {
+        background: var(--bg);
+      }
+      .certifications-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+      }
+      .cert-card {
+        background: linear-gradient(145deg, var(--card), rgba(15, 15, 36, 0.3));
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 36px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cert-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--purple),
+          var(--pink)
+        );
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .cert-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .cert-card:hover {
+        transform: translateY(-12px);
+        border-color: var(--border2);
+        box-shadow: 0 20px 50px rgba(0, 245, 212, 0.1);
+      }
+
+      .cert-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .cert-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 245, 212, 0.15),
+          rgba(123, 97, 255, 0.15)
+        );
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        flex-shrink: 0;
+        transition: all 0.4s;
+      }
+
+      .cert-card:hover .cert-icon {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 245, 212, 0.25),
+          rgba(123, 97, 255, 0.25)
+        );
+        transform: scale(1.1) rotate(-5deg);
+      }
+
+      .cert-meta {
+        flex: 1;
+      }
+
+      .cert-card h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: var(--text);
+      }
+
+      .cert-issuer {
+        font-size: 0.85rem;
+        color: var(--cyan);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+      .cert-status {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 6px 14px;
+        background: rgba(0, 245, 212, 0.08);
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--cyan);
+        width: fit-content;
+      }
+
+      .cert-status.completed {
+        background: rgba(0, 245, 212, 0.1);
+        border-color: var(--cyan);
+      }
+
+      .cert-status.in-progress {
+        background: rgba(255, 107, 157, 0.08);
+        border-color: rgba(255, 107, 157, 0.35);
+        color: var(--pink);
+      }
+
+      .cert-description {
+        color: var(--text2);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-top: 16px;
+        flex-grow: 1;
+      }
+
+      .cert-badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      .cert-badge::before {
+        content: "✓";
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, var(--cyan), var(--purple));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #030308;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
       /* Education */
       #education {
-        background: var(--bg);
+        background: var(--bg2);
       }
       .education-grid {
         display: grid;
@@ -1506,6 +1675,9 @@
         .projects-grid {
           grid-template-columns: 1fr;
         }
+        .certifications-container {
+          grid-template-columns: 1fr;
+        }
         .education-grid {
           grid-template-columns: 1fr;
         }
@@ -1534,6 +1706,9 @@
         }
         .project-content {
           padding: 28px;
+        }
+        .cert-card {
+          padding: 24px;
         }
         .contact-card {
           padding: 20px;
@@ -1574,6 +1749,7 @@
           <li><a href="#about" data-text="About">About</a></li>
           <li><a href="#skills" data-text="Skills">Skills</a></li>
           <li><a href="#projects" data-text="Projects">Projects</a></li>
+          <li><a href="#certifications" data-text="Certifications">Certifications</a></li>
           <li><a href="#education" data-text="Education">Education</a></li>
           <li><a href="#contact" data-text="Contact">Contact</a></li>
         </ul>
@@ -1590,6 +1766,7 @@
       <a href="#about" data-text="About">About</a>
       <a href="#skills" data-text="Skills">Skills</a>
       <a href="#projects" data-text="Projects">Projects</a>
+      <a href="#certifications" data-text="Certifications">Certifications</a>
       <a href="#education" data-text="Education">Education</a>
       <a href="#contact" data-text="Contact">Contact</a>
     </div>
@@ -1713,8 +1890,8 @@
           <div class="stats-container reveal reveal-delay-2">
             <div class="stat-card">
               <span class="stat-icon">🎯</span>
-              <span class="stat-number">2+</span>
-              <span class="stat-label">AI Projects</span>
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Projects Completed</span>
             </div>
             <div class="stat-card">
               <span class="stat-icon">⚡</span>
@@ -1723,8 +1900,8 @@
             </div>
             <div class="stat-card">
               <span class="stat-icon">🎓</span>
-              <span class="stat-number">'26</span>
-              <span class="stat-label">Graduating</span>
+              <span class="stat-number">4</span>
+              <span class="stat-label">Certifications</span>
             </div>
           </div>
         </div>
@@ -1759,7 +1936,7 @@
                 <span class="tag">GitHub</span>
                 <span class="tag">Vercel</span>
                 <span class="tag">VS Code</span>
-                <span class="tag">Chrome DevTools</span>
+                <span class="tag">Eclipse IDE</span>
               </div>
             </div>
           </div>
@@ -1860,6 +2037,122 @@
       </div>
     </section>
 
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="section-inner">
+        <span class="section-label reveal">Professional Growth</span>
+        <h2 class="section-title reveal">Certifications</h2>
+        <div class="certifications-container">
+          <!-- Certificate 1 -->
+          <div class="cert-card reveal reveal-delay-1">
+            <div class="cert-header">
+              <div class="cert-icon">📚</div>
+              <div class="cert-meta">
+                <h3>Industry Ready Full Stack Development</h3>
+                <div class="cert-issuer">NxtWave</div>
+              </div>
+            </div>
+            <p class="cert-description">
+              Comprehensive training in modern web development practices,
+              including frontend and backend technologies, database design, and
+              deployment strategies.
+            </p>
+            <span class="cert-status in-progress">In Progress</span>
+            <div class="cert-badge">Hands-on project-based learning</div>
+          </div>
+
+          <!-- Certificate 2 -->
+          <div class="cert-card reveal reveal-delay-2">
+            <div class="cert-header">
+              <div class="cert-icon">🐍</div>
+              <div class="cert-meta">
+                <h3>Programming Foundations with Python</h3>
+                <div class="cert-issuer">NxtWave</div>
+              </div>
+            </div>
+            <p class="cert-description">
+              Mastered Python fundamentals, object-oriented programming, data
+              structures, and problem-solving techniques essential for software
+              development.
+            </p>
+            <span class="cert-status completed">Completed</span>
+            <div class="cert-badge">Foundation in modern programming</div>
+          </div>
+
+          <!-- Certificate 3 -->
+          <div class="cert-card reveal reveal-delay-3">
+            <div class="cert-header">
+              <div class="cert-icon">🗄️</div>
+              <div class="cert-meta">
+                <h3>Introduction to Databases</h3>
+                <div class="cert-issuer">NxtWave</div>
+              </div>
+            </div>
+            <p class="cert-description">
+              In-depth understanding of database concepts, SQL queries, data
+              modeling, and optimization techniques for efficient data
+              management.
+            </p>
+            <span class="cert-status completed">Completed</span>
+            <div class="cert-badge">SQL & Database Design expertise</div>
+          </div>
+
+          <!-- Certificate 4 -->
+          <div class="cert-card reveal reveal-delay-4">
+            <div class="cert-header">
+              <div class="cert-icon">⚡</div>
+              <div class="cert-meta">
+                <h3>JavaScript Essentials</h3>
+                <div class="cert-issuer">NxtWave</div>
+              </div>
+            </div>
+            <p class="cert-description">
+              Deep dive into JavaScript fundamentals, ES6+ features, DOM
+              manipulation, and asynchronous programming for interactive web
+              applications.
+            </p>
+            <span class="cert-status completed">Completed</span>
+            <div class="cert-badge">Modern JavaScript proficiency</div>
+          </div>
+
+          <!-- Additional Achievement -->
+          <div class="cert-card reveal reveal-delay-5">
+            <div class="cert-header">
+              <div class="cert-icon">🤖</div>
+              <div class="cert-meta">
+                <h3>Generative AI Workshop</h3>
+                <div class="cert-issuer">NxtWave</div>
+              </div>
+            </div>
+            <p class="cert-description">
+              Comprehensive workshop on generative AI concepts, prompt
+              engineering, and practical applications in modern development.
+            </p>
+            <span class="cert-status completed">Completed</span>
+            <div class="cert-badge">AI expertise & prompt engineering</div>
+          </div>
+
+          <!-- Additional Achievement -->
+          <div class="cert-card reveal reveal-delay-6">
+            <div class="cert-header">
+              <div class="cert-icon">🏗️</div>
+              <div class="cert-meta">
+                <h3>NxtWave Buildathon</h3>
+                <div class="cert-issuer">Participation</div>
+              </div>
+            </div>
+            <p class="cert-description">
+              Participated in intensive project prototyping competition,
+              demonstrating rapid development and problem-solving skills under
+              real-world constraints.
+            </p>
+            <span class="cert-status completed">Completed</span>
+            <div class="cert-badge">Project execution excellence</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- EDUCATION -->
     <section id="education">
       <div class="section-inner">
@@ -1871,19 +2164,25 @@
             <div class="edu-info">
               <h3>B.E. Information Science</h3>
               <p class="institution">
-                Bapuji Institute of Engineering and Technology,Davanagere
+                Bapuji Institute of Engineering and Technology, Davanagere
               </p>
               <p class="year">2023 — 2026</p>
+              <p class="institution" style="margin-top: 8px; color: var(--cyan); font-size: 0.9rem;">
+                CGPA: 8.18
+              </p>
             </div>
           </div>
           <div class="edu-card reveal reveal-delay-2">
             <div class="edu-icon">📚</div>
             <div class="edu-info">
-              <h3>Diploma(In Civil Engineering)</h3>
+              <h3>Diploma in Civil Engineering</h3>
               <p class="institution">
-                Drr Govt Polytechnic Institute,Davanagere
+                DRR Govt Polytechnic Institute, Davanagere
               </p>
               <p class="year">2020 — 2023</p>
+              <p class="institution" style="margin-top: 8px; color: var(--cyan); font-size: 0.9rem;">
+                CGPA: 8.77
+              </p>
             </div>
           </div>
         </div>
@@ -1924,14 +2223,14 @@
               </div>
             </a>
             <a
-              href="https://linkedin.com/in/abhishekmraikar"
+              href="https://linkedin.com/in/abhishek-m-raikar-2a1308286"
               target="_blank"
               class="contact-card reveal reveal-delay-4"
             >
               <div class="contact-icon">🔗</div>
               <div class="contact-info">
                 <span class="label">LinkedIn</span>
-                <span class="value">linkedin.com/in/abhishekmraikar</span>
+                <span class="value">linkedin.com/in/abhishek-m-raikar</span>
               </div>
             </a>
           </div>
@@ -1953,7 +2252,7 @@
             >📦</a
           >
           <a
-            href="www.linkedin.com/in/abhishek-m-raikar-2a1308286"
+            href="https://linkedin.com/in/abhishek-m-raikar-2a1308286"
             target="_blank"
             title="LinkedIn"
             >💼</a
@@ -2122,4 +2421,4 @@
     </script>
   </body>
 </html>
-```
+
